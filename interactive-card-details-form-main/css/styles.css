@@ -12,10 +12,10 @@
 --purple-950: hsl(278, 68%, 11%);
 
 --font-stack: "Space Grotesk", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  border: 1px solid var(--purple-950);
   font-family: var(--font-stack);
   font-size: 1.8rem;
   font-weight: 500;
@@ -23,30 +23,55 @@ body {
   width: 37.5rem;
 }
 
-.background-card {
-  background-image: url('../images/bg-card-back.png');
-  z-index: 1;
+#cards {
+  background-color: var(--purple-950);
+  min-height: 50vh;
+  position: relative;
 }
 
-.background-card div {
-  background-color: var(--gray-200);
-  color: var(--white);
-  font-size: 1.2rem;
+.card-back,
+.purple-card {
+  position: absolute;
+  width: 320px;
+}
+
+.card-back {
+  left: 6rem;
+  top: 3rem;
+}
+
+.card-back div {
+  background: transparent;
+  color: var(--gray-200);
+  font-size: 1rem;
+  position: absolute;
+  top: 7rem;      /* adjust to match the CVC spot */
+  right:7rem;
+  z-index: 2;
 }
 
 .purple-card {
-  background-image: url('../images/bg-card-front.png');
-  text-align: center;
-  /* z-index: 10; */
+  color: var(--gray-200);
+  left: 2rem;
+  top: 14rem;
 }
 
-.purple-card span {
-  color: var(--gray-200);
+.purple-card div.details {
+  left: 5.5rem;
+  position: absolute;
+  top: 7rem;
+}
+
+.purple-card .holder {
+  display: flex;
+  justify-content: space-between;
   font-size: 1.2rem;
 }
 
-.purple-card span:first-child {
-  font-size: 1.4rem;
+.card-back img,
+.purple-card img {
+  display: block;
+  max-width: 90%;
 }
 
 .ty-message {
@@ -59,20 +84,36 @@ form {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 form label {
   align-self: flex-start;
   color: var(--purple-950);
   font-size: 1.2rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   text-transform: uppercase;
 }
 
 form input:not([id=year], [id=month], [id=cvc]) {
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
   padding: 1rem;
   width: 320px;
 }
+
+form input::placeholder {
+  color: var(--gray-200);
+  font-size: 1.6rem;
+}
+
+.expiry-details input#month, input#year, input#cvc {
+  border: 1px solid var(--gray-200);
+  border-radius: 0.5rem;
+  outline: 0;
+  padding: 1rem;
+}
+
 
 .card-details {
   display: grid;
@@ -93,13 +134,13 @@ form input:not([id=year], [id=month], [id=cvc]) {
   gap: 6px;
   margin-bottom: 1rem;
   padding: 0;
-
 }
 
 .expiry-details legend {
   font-size: 1.2rem;
-  padding: 0.5rem 0;
   grid-column: 1 / -1;
+  padding: 0.5rem;
+  text-transform: uppercase;
 }
 
 .cvc-group {
@@ -111,6 +152,14 @@ button {
   background-color: var(--purple-950);
   border: 1px solid var(--purple-950);
   color: var(--gray-200);
+  font-size: 1.6rem;
   outline: 0;
   padding: 1rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 76rem) {
+  body {
+    max-width: 100%;
+  }
 }

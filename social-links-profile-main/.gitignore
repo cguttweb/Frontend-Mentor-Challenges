@@ -18,6 +18,5 @@
 README-template.md
 style-guide.md
 preview.jpg
-/assets/fonts
-*.ttf
-*.txt
+/assets/fonts/**/*.ttf
+/assets/fonts/**/*.txt

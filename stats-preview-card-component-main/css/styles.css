@@ -12,6 +12,7 @@ font-size: 15px;
 }
 
 body {
+  align-items: center;
   background-color: var(--navy-950-main-background);
   display: grid;
   justify-content: center;
@@ -60,6 +61,7 @@ h1 span {
 h2 {
   color: var(--main-heading-stats);
   font-family: "Inter", sans-serif;
+  margin: 0;
 }
 
 p {
@@ -67,14 +69,38 @@ p {
   font-family: "Lexend Deca", sans-serif;
 }
 
+section > h1 + p {
+  line-height: 1.5rem;
+}
+
+.key-stats {
+  padding-bottom: 1rem;
+}
+
 .stats {
+  color: var(--stat-headings);
+  font-size: 12px;
   text-transform: uppercase;
 }
 
+footer {
+  display: block;
+}
+
 @media(min-width: 768px){
-  body {
+
+  main {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     max-width: 1440px;
+  }
+
+  .info {
+    padding: 3rem;
+  }
+
+  .key-stats {
+    display: flex;
+    justify-content: center;
   }
 }

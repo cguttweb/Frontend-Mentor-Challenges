@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+
+  --red: hsl(4, 100%, 67%);
+  --blue-800: hsl(234, 29%, 20%);
+  --blue-700: hsl(235, 18%, 26%);
+  --grey: hsl(0, 0%, 58%);
+  --white: hsl(0, 0%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  border: 1px solid var(--blue-700);
+  font-size: 1.6rem;
+  padding: 2rem;
+  margin: 0 auto;
+  width: 375px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: 1rem;
+}
+
+li::before {
+  content: url('../assets/images/icon-list.svg');
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+label {
+  display: block;
+}
+
+input {
+  padding: 1rem 0.5rem;
+  width: 100%;
+}
+
+button {
+  background-color: var(--blue-800);
+  border: 1px solid var(--blue-800);
+  color: var(--white);
+  outline: 0;
+  padding: 1rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
